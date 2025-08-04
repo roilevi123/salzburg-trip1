@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+
+<html lang="he">
+<head>
+<meta charset="utf-8"/>
+<title>אפליקציית הטיול שלי</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
+        body { font-family: sans-serif; direction: rtl; padding: 10px; background: #f8f9fa; }
+        h1 { color: #2c3e50; text-align: center; }
+        .tabs { display: flex; overflow-x: auto; background: #dfe6e9; padding: 10px; border-radius: 8px; }
+        .tab-btn { flex: 1; padding: 10px; margin: 0 5px; background: #b2bec3; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        .tab-btn.active { background: #0984e3; }
+        .day { display: none; margin-top: 10px; padding: 15px; background: #ffffff; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .day.active { display: block; }
+        .attraction { margin: 5px 0; }
+        .title { font-weight: bold; margin-top: 10px; }
+    </style>
+<script>
+        function showDay(index) {
+            const days = document.querySelectorAll('.day');
+            const buttons = document.querySelectorAll('.tab-btn');
+            days.forEach((d, i) => d.classList.toggle('active', i === index));
+            buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+        }
+        window.onload = () => showDay(0);
+    </script>
+</head>
+<body>
+<h1 style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    הטיול לפלכאו
+    <button onclick="openFullScreenAdd()" style="padding: 6px 10px; background: #00b894; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        ➕ הוסף אטרקציה
+    </button>
+
+<button onclick="resetToDefault()" style="padding: 6px 10px; background: #d63031; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    🔁 איפוס
+</button>
+</h1>
+<div class="tabs">
+<button class="tab-btn" onclick="showDay(0)">6/8</button>
+<button class="tab-btn" onclick="showDay(1)">7/8</button>
+<button class="tab-btn" onclick="showDay(2)">8/8</button>
+<button class="tab-btn" onclick="showDay(3)">9/8</button>
+<button class="tab-btn" onclick="showDay(4)">10/8</button>
+<button class="tab-btn" onclick="showDay(5)">11/8</button>
+<button class="tab-btn" onclick="showDay(6)">12/8</button>
+</div>
+<div class="day active">
+<div class="title">הגעה לוינה ונסיעה לפלכאו</div>
+<div class="attraction">✈️ טיסה מספר LY361 – המראה 6:40 מטרמינל 3, נחיתה בוינה ב־9:26</div>
+<div class="attraction">🚗 איסוף רכב שכור ב־10:30, נסיעה של כ־4 שעות לפלכאו</div>
+<div class="attraction">🛑 עצירה במפלי טראון (חינם) – פתוח 24/7, מומלץ לארוחת צהריים</div>
+<div class="attraction">🏰 אופציה: עצירה בעיירה גמונדן (סופרמרקטים, טירה שלוס אורט), נמצאת באגם טראון</div>
+<div class="attraction">🏨 הגעה למלון feriendorf oberhof – התמקמות והתארגנות</div>
+<div class="attraction">🍺 בערב יש אווירה חגיגית של בירות בפלכאו</div>
+</div>
+<div class="day">
+<div class="title">סכר קפרון, נקיקים ומפלים</div>
+<div class="attraction">🚠 סכר קפרון – הגעה עד 8:00, חניה בקומות גבוהות, 38€ למבוגר / 21€ לילד</div>
+<div class="attraction">🚌 נסיעה באוטובוס ומעלית, יש לשבת בצד שמאל</div>
+<div class="attraction">🪻 הליכה בשביל העשבים Krauterlehrpfad עד למסעדה</div>
+<div class="attraction">🌊 נקיק זיגמונד טון – כלול בכרטיס, הליכה על גשרי עץ</div>
+<div class="attraction">🏞️ המשך לאגם קלמזי – מסלול הליכה של 3 ק"מ מסביב לאגם</div>
+<div class="attraction">💧 מפלי קרימל – כלול בכרטיס, להביא מעילי גשם, מסלול קשוח עם תצפיות</div>
+</div>
+<div class="day">
+<div class="title">זלצבורג וסביבתה</div>
+<div class="attraction">⛏️ מכרות המלח בהליין – 75 דק', כלול בכרטיס, להביא בגדים חמים</div>
+<div class="attraction">🚡 רכבל אונטרסברג – כלול בכרטיס, 18 דקות נסיעה מהחניה</div>
+<div class="attraction">🅿️ חניה בזלצבורג (3-5€ ליום כולל אוטובוס)</div>
+<div class="attraction">🏰 סיור רגלי בעיר העתיקה + קתדרלה</div>
+<div class="attraction">🛥️ שייט בנהר זלצך – 40 דקות, כלול בכרטיס</div>
+<div class="attraction">🏯 עליה למבצר הוהנזלצבורג עם מעלית מונקסברג</div>
+<div class="attraction">🌳 ארמון הלברון – פארק מזרקות מים + גנים סגורים, סיור 40 דק'</div>
+<div class="attraction">🌸 גני מיראבל</div>
+<div class="attraction">🚗 האנגר 7 – תצוגת רדבול, כניסה חינם, עד 22:00</div>
+<div class="attraction">🛍️ קניון יורופארק / סולאבאגי</div>
+<div class="attraction">🛒 שוק עתיקות וינטאג' (שבת בלבד) 6:00-13:00</div>
+</div>
+<div class="day">
+<div class="title">מגלשות, אגמים ונקיקים</div>
+<div class="attraction">🛷 מגלשות אבטנאו – כלול בכרטיס, חשוב להגיע מוקדם</div>
+<div class="attraction">🏞️ אגם גוסאו – מסלול הליכה של שעה עד שעה וחצי</div>
+<div class="attraction">🚠 רכבל Gosaukamm – כלול, כל רבע שעה</div>
+<div class="attraction">🌄 נקיק למארקלם – כלול בכרטיס, 9:00-19:00</div>
+<div class="attraction">🌊 מפלי גולינג – כלול בכרטיס, חניה בתחתית המפל</div>
+</div>
+<div class="day">
+<div class="title">כביש האלפיני גרוסגלוקנר</div>
+<div class="attraction">🗻 נסיעה בכביש האלפיני – תשלום בכניסה</div>
+<div class="attraction">📸 עצירות: Franz Josefs, Fuscher Torl, Edelweißspitze, Bikers Point</div>
+<div class="attraction">🏞️ תצפיות ותחילת מסלולי הליכה קלים</div>
+<div class="attraction">🚠 רכבל באד הופגסטיין – כלול בכרטיס</div>
+<div class="attraction">🏊 אלפתרמה – כלול ל-4 שעות, לבדוק שעות יום לפני</div>
+</div>
+<div class="day">
+<div class="title">אגמים ועיירות קסומות</div>
+<div class="attraction">🏘️ האלשטאט – מרחק שעה ו־11 דקות</div>
+<div class="attraction">🏡 סנט גילגן – עיירה ציורית על אגם וולפגנג, עליה ברכבל (יקר – 35€)</div>
+<div class="attraction">⛪ סנט וולפגנג – כנסיה ונוף פנורמי</div>
+</div>
+<div class="day">
+<div class="title">סיכום וביקור נוסף</div>
+<div class="attraction">🚠 רכבל גריזנקר בפלכאו – כלול בכרטיס</div>
+<div class="attraction">🌊 נקיק ליכטנשטיין – מסלול כשעתיים הלוך-חזור, נעלי הליכה חובה</div>
+</div>
+<div style="margin-top: 20px; background: #dff9fb; padding: 10px; border-radius: 10px;">
+<h2>🗺️ אתרים קרובים לפלכאו</h2>
+<ul>
+<li>🏞️ אגם יאגרסי – מרחק 25 דקות | כניסה חינם | ⚠️ מסעדה אנטישמית</li>
+<li>🏘️ עיירה וואגריין – 11 דקות | רכבל FLYING MOZART (כלול בכרטיס) | שעות: 9:00–17:00</li>
+<li>🌊 נקיק ליכטנשטיין – 30–40 דקות | נעלי הליכה חובה | מסלול 2 שעות | שעות: 9:00–18:00</li>
+<li>🏊 תרמה אמדה – 5–10 דקות | כלול בכרטיס ל־4 שעות | א–ה: 9:00–22:00, שישי–שבת: 9:00–23:00</li>
+<li>🚡 רכבל גריזנקר – בפלכאו | כלול בכרטיס | שעות: 9:00–17:00</li>
+</ul>
+</div>
+<script>
+    function addAttraction(dayIndex) {
+        const text = prompt("הכנס שם אטרקציה חדשה:");
+        if (!text) return;
+        const container = document.querySelectorAll('.day')[dayIndex];
+        const div = document.createElement("div");
+        div.className = "attraction";
+        div.innerText = text + " ";
+        const removeBtn = document.createElement("button");
+        removeBtn.innerText = "❌";
+        removeBtn.style.marginRight = "10px";
+        removeBtn.onclick = () => div.remove();
+        div.prepend(removeBtn);
+        container.appendChild(div);
+    }
+    </script>
+<!-- Modal for Adding Attraction -->
+<div id="addModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+<div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
+<h3>הוסף אטרקציה</h3>
+<input id="newAttractionText" placeholder="שם האטרקציה" style="width:90%; padding:8px; margin-top:10px;" type="text"/>
+<br/><br/>
+<button onclick="confirmAddAttraction()">✅ הוסף</button>
+<button onclick="closeModal()">❌ ביטול</button>
+</div>
+</div>
+<script>
+    let currentDayIndex = 0;
+
+    function showModal(dayIndex) {
+        currentDayIndex = dayIndex;
+        document.getElementById('addModal').style.display = 'flex';
+        document.getElementById('newAttractionText').value = '';
+    }
+
+    function closeModal() {
+        document.getElementById('addModal').style.display = 'none';
+    }
+
+    function confirmAddAttraction() {
+        const text = document.getElementById('newAttractionText').value.trim();
+        if (!text) return;
+        const container = document.querySelectorAll('.day')[currentDayIndex];
+        const div = document.createElement("div");
+        div.className = "attraction";
+        const removeBtn = document.createElement("button");
+        removeBtn.innerText = "❌";
+        removeBtn.style.marginRight = "10px";
+        removeBtn.onclick = () => div.remove();
+        div.appendChild(removeBtn);
+        div.append(" " + text);
+        container.appendChild(div);
+        closeModal();
+    }
+
+    // Add remove buttons to all current attractions
+    window.onload = () => {
+        showDay(0);
+        document.querySelectorAll('.day .attraction').forEach(a => {
+            if (!a.querySelector('button')) {
+                const removeBtn = document.createElement("button");
+                removeBtn.innerText = "❌";
+                removeBtn.style.marginRight = "10px";
+                removeBtn.onclick = () => a.remove();
+                a.prepend(removeBtn);
+            }
+        });
+    };
+</script>
+<!-- Fullscreen Modal -->
+<div id="fullscreenAdd" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; flex-direction:column; align-items:center; justify-content:center;">
+<h2>הוסף אטרקציה ליום מסוים</h2>
+<select id="daySelector" style="font-size:16px; padding:10px; margin:10px;">
+<option value="0">6/8</option>
+<option value="1">7/8</option>
+<option value="2">8/8</option>
+<option value="3">9/8</option>
+<option value="4">10/8</option>
+<option value="5">11/8</option>
+<option value="6">12/8</option>
+</select><br/>
+<input id="newAttrTextFull" placeholder="שם האטרקציה" style="width:80%; padding:10px; font-size:16px;" type="text"/><br/><br/>
+<button onclick="confirmFullAdd()" style="padding: 10px 20px;">✅ הוסף</button>
+<button onclick="closeFullScreenAdd()" style="padding: 10px 20px;">❌ ביטול</button>
+</div>
+<script>
+function openFullScreenAdd() {
+    document.getElementById("fullscreenAdd").style.display = "flex";
+    document.getElementById("newAttrTextFull").value = "";
+}
+function closeFullScreenAdd() {
+    document.getElementById("fullscreenAdd").style.display = "none";
+}
+function confirmFullAdd() {
+    const text = document.getElementById("newAttrTextFull").value.trim();
+    const dayIndex = parseInt(document.getElementById("daySelector").value);
+    if (!text) return;
+    const container = document.querySelectorAll('.day')[dayIndex];
+    const div = document.createElement("div");
+    div.className = "attraction";
+    const removeBtn = document.createElement("button");
+    removeBtn.innerText = "❌";
+    removeBtn.style.marginRight = "10px";
+    removeBtn.onclick = () => div.remove();
+    div.appendChild(removeBtn);
+    div.append(" " + text);
+    container.appendChild(div);
+    closeFullScreenAdd();
+}
+</script>
+<script>
+function saveDataToLocalStorage() {
+    const data = [];
+    document.querySelectorAll('.day').forEach((dayDiv, index) => {
+        const title = dayDiv.querySelector('.title')?.innerText || "יום " + (index + 1);
+        const attractions = Array.from(dayDiv.querySelectorAll('.attraction'))
+            .map(a => a.innerText.replace("❌", "").trim());
+        data.push({ title, attractions });
+    });
+    localStorage.setItem("tripData", JSON.stringify(data));
+}
+
+function loadDataFromLocalStorage() {
+    const raw = localStorage.getItem("tripData");
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    const days = document.querySelectorAll('.day');
+    data.forEach((dayData, index) => {
+        if (!days[index]) return;
+        const container = days[index];
+        container.innerHTML = `<div class="title">${dayData.title}</div>`;
+        dayData.attractions.forEach(text => {
+            const div = document.createElement("div");
+            div.className = "attraction";
+            const removeBtn = document.createElement("button");
+            removeBtn.innerText = "❌";
+            removeBtn.style.marginRight = "10px";
+            removeBtn.onclick = () => { div.remove(); saveDataToLocalStorage(); };
+            div.appendChild(removeBtn);
+            div.append(" " + text);
+            container.appendChild(div);
+        });
+    });
+}
+
+// עידכון כל פעולות ההוספה שיקראו ל־saveDataToLocalStorage
+function confirmAddAttraction() {
+    const text = document.getElementById('newAttractionText').value.trim();
+    if (!text) return;
+    const container = document.querySelectorAll('.day')[currentDayIndex];
+    const div = document.createElement("div");
+    div.className = "attraction";
+    const removeBtn = document.createElement("button");
+    removeBtn.innerText = "❌";
+    removeBtn.style.marginRight = "10px";
+    removeBtn.onclick = () => { div.remove(); saveDataToLocalStorage(); };
+    div.appendChild(removeBtn);
+    div.append(" " + text);
+    container.appendChild(div);
+    closeModal();
+    saveDataToLocalStorage();
+}
+
+function confirmFullAdd() {
+    const text = document.getElementById("newAttrTextFull").value.trim();
+    const dayIndex = parseInt(document.getElementById("daySelector").value);
+    if (!text) return;
+    const container = document.querySelectorAll('.day')[dayIndex];
+    const div = document.createElement("div");
+    div.className = "attraction";
+    const removeBtn = document.createElement("button");
+    removeBtn.innerText = "❌";
+    removeBtn.style.marginRight = "10px";
+    removeBtn.onclick = () => { div.remove(); saveDataToLocalStorage(); };
+    div.appendChild(removeBtn);
+    div.append(" " + text);
+    container.appendChild(div);
+    closeFullScreenAdd();
+    saveDataToLocalStorage();
+}
+
+// מוסיף את כפתור ההסרה הקיים גם לאטרקציות שנמצאות כבר
+window.onload = () => {
+    showDay(0);
+    loadDataFromLocalStorage();
+    document.querySelectorAll('.day .attraction').forEach(a => {
+        if (!a.querySelector('button')) {
+            const removeBtn = document.createElement("button");
+            removeBtn.innerText = "❌";
+            removeBtn.style.marginRight = "10px";
+            removeBtn.onclick = () => { a.remove(); saveDataToLocalStorage(); };
+            a.prepend(removeBtn);
+        }
+    });
+};
+</script>
+
+<script>
+const defaultTripData = [
+  {
+    "title": "הגעה לוינה ונסיעה לפלכאו",
+    "attractions": [
+      "✈️ טיסה מספר LY361 – המראה 6:40 מטרמינל 3, נחיתה בוינה ב־9:26",
+      "🚗 איסוף רכב שכור ב־10:30, נסיעה של כ־4 שעות לפלכאו",
+      "🛑 עצירה במפלי טראון (חינם) – פתוח 24/7, מומלץ לארוחת צהריים",
+      "🏰 אופציה: עצירה בעיירה גמונדן (סופרמרקטים, טירה שלוס אורט), נמצאת באגם טראון",
+      "🏨 הגעה למלון feriendorf oberhof – התמקמות והתארגנות",
+      "🍺 בערב יש אווירה חגיגית של בירות בפלכאו"
+    ]
+  },
+  {
+    "title": "סכר קפרון, נקיקים ומפלים",
+    "attractions": [
+      "🚠 סכר קפרון – הגעה עד 8:00, חניה בקומות גבוהות, 38€ למבוגר / 21€ לילד",
+      "🚌 נסיעה באוטובוס ומעלית, יש לשבת בצד שמאל",
+      "🪻 הליכה בשביל העשבים Krauterlehrpfad עד למסעדה",
+      "🌊 נקיק זיגמונד טון – כלול בכרטיס, הליכה על גשרי עץ",
+      "🏞️ המשך לאגם קלמזי – מסלול הליכה של 3 ק\"מ מסביב לאגם",
+      "💧 מפלי קרימל – כלול בכרטיס, להביא מעילי גשם, מסלול קשוח עם תצפיות"
+    ]
+  },
+  {
+    "title": "זלצבורג וסביבתה",
+    "attractions": [
+      "⛏️ מכרות המלח בהליין – 75 דק', כלול בכרטיס, להביא בגדים חמים",
+      "🚡 רכבל אונטרסברג – כלול בכרטיס, 18 דקות נסיעה מהחניה",
+      "🅿️ חניה בזלצבורג (3-5€ ליום כולל אוטובוס)",
+      "🏰 סיור רגלי בעיר העתיקה + קתדרלה",
+      "🛥️ שייט בנהר זלצך – 40 דקות, כלול בכרטיס",
+      "🏯 עליה למבצר הוהנזלצבורג עם מעלית מונקסברג",
+      "🌳 ארמון הלברון – פארק מזרקות מים + גנים סגורים, סיור 40 דק'",
+      "🌸 גני מיראבל",
+      "🚗 האנגר 7 – תצוגת רדבול, כניסה חינם, עד 22:00",
+      "🛍️ קניון יורופארק / סולאבאגי",
+      "🛒 שוק עתיקות וינטאג' (שבת בלבד) 6:00-13:00"
+    ]
+  },
+  {
+    "title": "מגלשות, אגמים ונקיקים",
+    "attractions": [
+      "🛷 מגלשות אבטנאו – כלול בכרטיס, חשוב להגיע מוקדם",
+      "🏞️ אגם גוסאו – מסלול הליכה של שעה עד שעה וחצי",
+      "🚠 רכבל Gosaukamm – כלול, כל רבע שעה",
+      "🌄 נקיק למארקלם – כלול בכרטיס, 9:00-19:00",
+      "🌊 מפלי גולינג – כלול בכרטיס, חניה בתחתית המפל"
+    ]
+  },
+  {
+    "title": "כביש האלפיני גרוסגלוקנר",
+    "attractions": [
+      "🗻 נסיעה בכביש האלפיני – תשלום בכניסה",
+      "📸 עצירות: Franz Josefs, Fuscher Torl, Edelweißspitze, Bikers Point",
+      "🏞️ תצפיות ותחילת מסלולי הליכה קלים",
+      "🚠 רכבל באד הופגסטיין – כלול בכרטיס",
+      "🏊 אלפתרמה – כלול ל-4 שעות, לבדוק שעות יום לפני"
+    ]
+  },
+  {
+    "title": "אגמים ועיירות קסומות",
+    "attractions": [
+      "🏘️ האלשטאט – מרחק שעה ו־11 דקות",
+      "🏡 סנט גילגן – עיירה ציורית על אגם וולפגנג, עליה ברכבל (יקר – 35€)",
+      "⛪ סנט וולפגנג – כנסיה ונוף פנורמי"
+    ]
+  },
+  {
+    "title": "סיכום וביקור נוסף",
+    "attractions": [
+      "🚠 רכבל גריזנקר בפלכאו – כלול בכרטיס",
+      "🌊 נקיק ליכטנשטיין – מסלול כשעתיים הלוך-חזור, נעלי הליכה חובה"
+    ]
+  }
+];
+
+function resetToDefault() {
+    localStorage.setItem("tripData", JSON.stringify(defaultTripData));
+    location.reload();
+}
+</script>
+</body>
+</html>
